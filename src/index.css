@@ -1,0 +1,400 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair:opsz,wght@5..1200,700&family=Poppins:wght@300;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Hanalei&display=swap");
+
+/* font-family: 'Playfair', serif;
+font-family: 'Poppins', sans-serif; */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* #####################
+BODY CSS
+##################### */
+body {
+  /* background-image: linear-gradient(0deg, #4a9fff 20px, #a0a0a0 100%); */
+  font-family: "Poppins", sans-serif;
+  background-color: #010002ec;
+  color: #8a2be2;
+}
+
+.card-bg {
+  background-color: #98a2fa10;
+  color: blueviolet;
+}
+
+.dark {
+  background-color: #000000c4 !important;
+}
+
+/* #####################
+    NAVBAR CSS
+  ##################### */
+.navbar {
+  /* margin-top: 1vh; */
+  font-family: "Poppins", sans-serif;
+  font-size: 17px;
+  line-height: 26px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1);
+  background-color: #161722 !important;
+  color: white !important;
+}
+
+.navbar-brand {
+  h1 {
+    font-weight: 700;
+  }
+}
+
+.nav-link {
+  margin-left: 2px;
+  padding: 2px;
+  color: white !important ;
+}
+
+.nav-link:hover {
+  /* border: 1px solid; */
+  color: rgb(172, 90, 248) !important;
+}
+
+/*  ###################
+    CROUSEL CSS 
+    ################### */
+.carousel-inner > .carousel-item > img {
+  height: 70vh;
+  min-height: 350px;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* #####################
+FOOTER CSS
+##################### */
+.footer {
+  margin-top: 15vh;
+  background-color: #1c1e3370 !important;
+}
+.footer .text-center {
+  padding-bottom: 8px;
+}
+.f-head {
+  letter-spacing: 8px !important;
+}
+.f-link {
+  text-decoration: none;
+  color: rgb(206, 206, 206) !important;
+}
+.f-link:hover {
+  color: rgb(209, 110, 255) !important;
+}
+s-icons {
+  color: red !important;
+}
+s-icons:hover {
+  transform: size scale(1.5) !important;
+}
+/* #####################
+PAGE NOT FOUND CSS
+##################### */
+.pnf {
+  display: flex;
+  min-height: 78vh;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.pnf-title {
+  color: rgb(252, 248, 255);
+  font-family: "Hanalei", system-ui;
+  font-size: 20vh;
+  font-weight: 700;
+  letter-spacing: 10px;
+}
+
+.pnf-heading {
+  font-weight: normal;
+  margin-bottom: 30px;
+}
+
+.pnf-btn {
+  color: #cacaca;
+  border: 1px solid #cacaca;
+  text-decoration: none;
+  padding: 8px;
+  border-radius: 10px;
+}
+/* #####################
+info PAGE CSS
+##################### */
+.info-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2%;
+}
+
+.info-image {
+  max-width: 50%; /* Adjust the width as needed */
+  height: auto;
+  margin-right: 30px;
+}
+
+.info-details {
+  font-size: 18px;
+  font-family: "Poppins", sans-serif;
+  text-align: left;
+  background-color: #27193d3d; /* Light gray background color, adjust as needed */
+  padding: 30px;
+  border-radius: 20px; /* Rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  h3 {
+    font-size: 25px;
+  }
+  p {
+    color: rgba(255, 255, 255, 0.699);
+    margin-bottom: 25px;
+  }
+  ul {
+    color: rgba(255, 255, 255, 0.699);
+    li {
+      margin-bottom: 10px;
+      
+    }
+  }
+}
+
+.info-details h2 {
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+/* #####################
+Authentication
+##################### */
+
+.forgot-signin-signup a {
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+}
+.forgot-signin-signup a:hover {
+  color: rgb(163, 161, 161);
+}
+
+/* PASSWORD */
+.password-input-wrapper {
+  position: relative;
+}
+
+.password-input-inner {
+  position: relative;
+}
+
+.eye-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  user-select: none;
+}
+
+/* PRODUCT link */
+.product-link {
+  text-decoration: none !important;
+  color: rgb(255, 255, 255);
+}
+
+/* ROW CSS */
+.row {
+  margin-right: 0;
+}
+
+/* SEARCH BAR CSS */
+.searchBox {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: auto;
+  min-width: 30%;
+  margin-right: 10px;
+}
+
+.search-field {
+  color: #ffffff !important;
+  border-left: 1px solid #82032d34;
+  border-top: 1px solid #82032d34;
+  border-bottom: 1px solid #82032d34;
+  border-right: none;
+
+  background-color: #e7e7e725;
+}
+
+.search-field::placeholder {
+  color: #cccccca9 !important;
+  background-color: transparent !important;
+  font-size: 15px;
+}
+
+.search-field:focus {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.658) !important;
+  border-color: #0000008d !important;
+  background-color: #a8a8a838;
+  border-radius: 20px;
+}
+
+.search-btn {
+  background-color: #000000e2 !important;
+}
+.search-btn:hover {
+  background-color: #000000 !important;
+}
+.search-btn:focus {
+  border-color: #000000 !important;
+}
+
+/* PRODUCT CARD CSS */
+.product-card {
+  border-radius: 20px;
+  background-color: #44326136 !important;
+  color: #ffffffda !important;
+  h6 {
+    color: rgba(255, 255, 255, 0.699);
+  }
+}
+.product-card:hover {
+  border-color: rgba(255, 255, 255, 0.932);
+}
+
+.card h1 {
+  color: #8a2be2;
+}
+
+.product-img {
+  border-radius: 30px;
+  padding: 20px;
+}
+
+/* FILTERS CSS */
+
+.card-dash {
+  background-color: #31313120;
+  color: rgb(171, 95, 243);
+}
+
+.submit-btn {
+  margin-top: 4px;
+  border: none;
+  border-radius: 5px;
+  background-color: #b52454;
+  color: white;
+}
+
+.submit-btn :hover {
+  background: #6d1e38;
+  background: -webkit-linear-gradient(to right, #800c33, #800c33);
+  background: linear-gradient(to right, #800c33, #800c33);
+}
+
+.form-select {
+  color: white !important;
+}
+
+/* CREATE PRODUCT - SELELCT  CATEGORY*/
+.set-categ {
+  color: white !important;
+}
+.set-categ {
+  color: #3cd20088;
+}
+
+/* Category Section Tiles */
+.category-tiles {
+  color: white;
+  background-color: #0000005b;
+  align-items: center;
+  border: none;
+  text-decoration: none;
+}
+.category-tiles:hover {
+  background-color: #ffffff4b;
+}
+
+/* Landing page */
+.show-all {
+  text-decoration: none;
+  color: white;
+}
+.show-all:hover {
+  color: rgb(228, 171, 255);
+}
+
+/*####################
+    VIDEO GALLARY
+ #################### */
+.playlist-vid {
+  background-color: #00000057;
+  color: white;
+}
+
+.vid-bg {
+  background-color: #4820db5e;
+  color: white;
+}
+
+/*####################
+    ResearchPaperViewer
+ #################### */
+
+.rp-card {
+  border-radius: 20px;
+  background-color: #00000044 !important;
+  color: #ffffffda !important;
+  h6 {
+    color: rgba(255, 255, 255, 0.699);
+  }
+}
+viewer-title {
+  font-size: 45px !important;
+}
+viewer-desc {
+  font-size: 18px !important;
+  color: #ffffff9a;
+}
+/* download btn */
+.d-btn {
+  border-radius: 20px;
+  background-color: #8a2be2;
+  color: white;
+  border: none;
+}
+.d-btn:hover {
+  background-color: #821ee0;
+  color: white;
+}
+/* PHONE SIZE */
+/* PDF  PREVIEW */
+@media (max-width: 768px) {
+  iframe {
+    height: 300px; /* Adjust as needed */
+  }
+}
+
+@media (max-width: 576px) {
+  iframe {
+    height: 200px; /* Adjust as needed */
+  }
+}
+
+/* NOTES CSS */
+.notes-btn {
+  background-color: rgb(79, 8, 180);
+  color: white;
+}
+.notes-btn:hover {
+  background-color: rgb(106, 0, 206);
+  color: whitesmoke;
+}
