@@ -15,7 +15,7 @@ const CourseVideos = () => {
     }
   }, [courses]);
   return (
-    <Layout title={"Dashboard - All Users"}>
+    <Layout title={"Dashboard - All Users | gurukulcse"}>
       <Spin spinning={loading} size="large" fullscreen />
 
       <div className="container-fluid p-3">

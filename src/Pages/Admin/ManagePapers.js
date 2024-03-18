@@ -90,7 +90,7 @@ const ManagePapers = () => {
   };
 
   return (
-    <Layout title={"Dashboard - Manage Papers"}>
+    <Layout title={"Dashboard - Manage Papers | gurukulcse"}>
       <div className="container-fluid p-3">
         <div className="row">
           <div className="col-md-3">

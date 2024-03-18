@@ -93,7 +93,7 @@ const AdminProfile = () => {
   };
 
   return (
-    <Layout title={"Dashboard - Manage Courses"}>
+    <Layout title={"Dashboard - Manage Courses | gurukulcse"}>
       <div className=" container-fluid p-3">
         <div className="row">
           <div className="col-md-3">

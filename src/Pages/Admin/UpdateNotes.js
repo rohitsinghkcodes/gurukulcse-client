@@ -84,7 +84,7 @@ const UpdateNotes = () => {
   };
 
   return (
-    <Layout title={"Dashboard - Update Notes"}>
+    <Layout title={"Dashboard - Update Notes | gurukulcse"}>
       <Spin spinning={loading} size="large" fullscreen />
       <div className="container-fluid p-3">
         <div className="row">

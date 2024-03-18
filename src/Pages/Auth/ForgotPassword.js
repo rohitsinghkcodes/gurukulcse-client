@@ -46,7 +46,7 @@ const ForgotPassword = () => {
   };
 
   return (
-    <Layout title="Forgot Password | E-Commerce App">
+    <Layout title="Forgot Password | gurukulcse">
       <div className="form-container">
         <form onSubmit={onSubmitHandler}>
           <h1 className="mb-5 text-center">Reset Password</h1>

@@ -50,7 +50,7 @@ const Register = () => {
   };
 
   return (
-    <Layout title="Register | E-Commerce App">
+    <Layout title="Register | gurukulcse">
       <div className="form-container">
         <form onSubmit={onSubmitHandler}>
           <h1 className="mb-5 text-center">Sign Up</h1>

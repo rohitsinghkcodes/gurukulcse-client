@@ -3,7 +3,7 @@ import Layout from "../Components/Layouts/Layout.js";
 
 const About = () => {
   return (
-    <Layout title="About Us">
+    <Layout title="About Us  | gurukulcse">
       <div className="container text-center mb-5">
         <div className="info-container ">
           <div className="info-details">

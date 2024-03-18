@@ -79,7 +79,7 @@ const AddVideosToCourse = () => {
   };
 
   return (
-    <Layout title={"Dashboard - Products"}>
+    <Layout title={"Dashboard | gurukulcse"}>
       <div className="container-fluid p-3">
         <div className="row">
           <div className="col-md-3">

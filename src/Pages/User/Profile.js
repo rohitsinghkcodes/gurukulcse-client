@@ -107,7 +107,7 @@ const Profile = () => {
   };
 
   return (
-    <Layout title={"Dashboard - Profile"}>
+    <Layout title={"Profile | gurukulcse"}>
       <div className="form-container">
         {(editName || editPassword || editPhone || editAddress2) && (
           <div className="alert alert-warning py-2" role="alert">

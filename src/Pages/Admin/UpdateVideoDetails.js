@@ -108,7 +108,7 @@ const UpdateVideoDetails = () => {
   };
 
   return (
-    <Layout title={"Dashboard - Update Video Details"}>
+    <Layout title={"Dashboard - Update Video Details | gurukulcse"}>
       <Spin spinning={loading} size="large" fullscreen />
 
       <div className="container-fluid m-3 p-3">

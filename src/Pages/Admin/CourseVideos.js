@@ -36,7 +36,7 @@ const CourseVideos = () => {
   }, []);
 
   return (
-    <Layout title={"Dashboard - Course Videos"}>
+    <Layout title={"Dashboard - Course Videos | gurukulcse"}>
       <div  className=" mt-4 container">
         <Spin spinning={loading} size="large" fullscreen />
 

@@ -7,7 +7,7 @@ const HomePage = () => {
   const courses = useCourse();
 
   return (
-    <Layout title={"Portfolio"}>
+    <Layout >
       <>
         <div>
           <div className="container pt-4">
