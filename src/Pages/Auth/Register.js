@@ -25,10 +25,13 @@ const Register = () => {
         return;
       }
 
-      const res = await axios.post(
-        "http://localhost:8080/api/v1/auth/register/",
-        { name, email, password, phone, security_ans }
-      );
+      const res = await axios.post("/api/v1/auth/register/", {
+        name,
+        email,
+        password,
+        phone,
+        security_ans,
+      });
 
       if (res.data.success) {
         // toast.success(res.data.msg);

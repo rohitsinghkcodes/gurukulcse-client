@@ -2,17 +2,14 @@ import React from "react";
 import { NavLink, Link, useLocation } from "react-router-dom";
 import { useAuth } from "../../Context/authContext.js";
 import SearchComponent from "../Form/SearchComponent.js";
-import useCategory from "../../hooks/useCourse.js";
 import { MdSpaceDashboard } from "react-icons/md";
 import { IoLogOut } from "react-icons/io5";
-import { FaBoxOpen, FaRegUserCircle, FaUserCircle } from "react-icons/fa";
-import { TfiHeadphoneAlt } from "react-icons/tfi";
+import { FaRegUserCircle } from "react-icons/fa";
 import { toast } from "react-toastify";
 
 const Header = () => {
   const [auth, setAuth] = useAuth();
   const location = useLocation();
-  const categories = useCategory();
   //clear storage and set auth details after logging out => handled by this funtion
   const handleLogOut = () => {
     setAuth({

@@ -2,11 +2,10 @@ import React, { useState, useEffect } from "react";
 import Layout from "../../Components/Layouts/Layout";
 import AdminMenu from "../../Components/Layouts/AdminMenu";
 import axios from "axios";
-import { Select } from "antd";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import moment from "moment";
-import { Popconfirm , Spin} from "antd";
+import { Popconfirm, Spin } from "antd";
 
 const ManagePapers = () => {
   const navigate = useNavigate();
@@ -16,13 +15,12 @@ const ManagePapers = () => {
   const [researchPapers, setResearchPapers] = useState([]);
   const [loading, setLoading] = useState(true);
 
-
   const getAllPapers = async () => {
     try {
       const { data } = await axios.get(`/api/v1/papers/get-all-papers`);
       if (data?.success) {
         setResearchPapers(data.papers);
-        setLoading(false)
+        setLoading(false);
       }
     } catch (error) {
       toast.error("Something went wrong while fethcing research papers!");
@@ -188,20 +186,22 @@ const ManagePapers = () => {
                         Last updated {moment(rp.updatedAt).fromNow()}
                       </p>
                       <div className="d-flex justify-content-end">
-                      <div
-                        className="btn btn-sm btn-secondary w-50 rounded-3 "
-                        onClick={() => navigate(`update-papers/${rp.slug}`)}
-                      >
-                        Edit
-                      </div>
-                      <Popconfirm
-                        title="Are you sure, you want to delete this paper?"
-                        onConfirm={() => handleDeleteBtn(rp._id)}
-                        okText="Yes"
-                        cancelText="No"
-                      >
-                        <div className="btn btn-sm btn-danger w-50 rounded-3 ms-2">Delete</div>
-                      </Popconfirm>
+                        <div
+                          className="btn btn-sm btn-secondary w-50 rounded-3 "
+                          onClick={() => navigate(`update-papers/${rp.slug}`)}
+                        >
+                          Edit
+                        </div>
+                        <Popconfirm
+                          title="Are you sure, you want to delete this paper?"
+                          onConfirm={() => handleDeleteBtn(rp._id)}
+                          okText="Yes"
+                          cancelText="No"
+                        >
+                          <div className="btn btn-sm btn-danger w-50 rounded-3 ms-2">
+                            Delete
+                          </div>
+                        </Popconfirm>
                       </div>
                     </div>
                   </div>

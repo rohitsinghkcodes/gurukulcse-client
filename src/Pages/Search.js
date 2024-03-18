@@ -1,10 +1,7 @@
 import Layout from "../Components/Layouts/Layout.js";
 import React, { useState, useRef } from "react";
 import { useSearch } from "../Context/searchContext";
-import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
 import ReactPlayer from "react-player";
-import VidPlayer from "../Components/Form/VidPlayer.js";
 import { Modal } from "antd";
 
 const Search = () => {

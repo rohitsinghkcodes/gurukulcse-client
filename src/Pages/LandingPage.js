@@ -1,7 +1,5 @@
 import React from "react";
 import Layout from "../Components/Layouts/Layout.js";
-// import ReactPlayer from 'react-player/youtube'
-import ReactPlayer from "react-player/lazy";
 import useCourse from "../hooks/useCourse.js";
 import { Link } from "react-router-dom";
 

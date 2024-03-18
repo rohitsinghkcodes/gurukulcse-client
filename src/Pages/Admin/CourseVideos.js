@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Layout from "../../Components/Layouts/Layout";
-import AdminMenu from "../../Components/Layouts/AdminMenu";
 import axios from "axios";
-import { Select, Spin } from "antd";
+import { Spin } from "antd";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import ReactPlayer from "react-player";
-const { Option } = Select;
 
 const CourseVideos = () => {
   const params = useParams();

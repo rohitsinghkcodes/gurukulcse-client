@@ -157,7 +157,7 @@ const ManageNotes = () => {
                     <div className="text-center">
                       <img
                         src={URL.createObjectURL(image)}
-                        alt="notes-subject-image"
+                        alt="subject notes"
                         height="200px"
                         className="img img-responsiv rounded"
                       />

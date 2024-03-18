@@ -145,7 +145,7 @@ const UpdateNotes = () => {
                     <div className="text-center">
                       <img
                         src={URL.createObjectURL(image)}
-                        alt="notes-subject-image"
+                        alt="notes-subject"
                         height="200px"
                         className="img img-responsiv rounded"
                       />
@@ -154,7 +154,7 @@ const UpdateNotes = () => {
                     <div className="text-center">
                       <img
                         src={`/api/v1/notes/sub-image/${id}`}
-                        alt="image"
+                        alt="old-pic"
                         height="200px"
                         className="img img-responsiv rounded"
                       />

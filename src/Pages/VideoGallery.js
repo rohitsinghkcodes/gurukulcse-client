@@ -2,13 +2,12 @@ import Layout from "../Components/Layouts/Layout";
 import ReactPlayer from "react-player/lazy";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import {useNavigate, useParams } from "react-router-dom";
+import {useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Spin } from "antd";
 
 const VideoGallery = () => {
   const params = useParams();
-  const navigate = useNavigate();
   const [videosList, setVideosList] = useState([]);
   const [course, setCourse] = useState("");
   const [video, setVideo] = useState({});
@@ -76,7 +75,7 @@ const VideoGallery = () => {
                 {videosList.map((v, i) => (
                   <div
                     className={`card  p-3 mt-1 rounded- ${
-                      v?._id == video?._id ? "vid-bg" : "playlist-vid"
+                      v?._id === video?._id ? "vid-bg" : "playlist-vid"
                     }`}
                     onClick={() => setVideo(v)}
                   >

@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Layout from "../Components/Layouts/Layout";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import moment from "moment";
 import { Spin } from "antd";
 
 const Notes = () => {
   const [allSubNotes, setAllSubNotes] = useState([]);
-  const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
 
   const getAllNotes = async () => {
@@ -88,6 +86,7 @@ const Notes = () => {
                   </p>
                   <div className="text-center d-flex justify-content-center">
                     <a
+                    rel="noopener noreferrer"
                       href={n.pdfLink}
                       target="_blank"
                       className="btn px-4 d-btn"

@@ -1,5 +1,5 @@
-import { useState, useContext, useEffect, createContext } from "react";
-import axios from "axios";
+import { useState, useContext, createContext } from "react";
+
 
 const SearchContext = createContext();
 
