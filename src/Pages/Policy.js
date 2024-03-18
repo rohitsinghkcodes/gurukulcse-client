@@ -3,7 +3,7 @@ import Layout from "../Components/Layouts/Layout.js";
 
 const Policy = () => {
   return (
-    <Layout title="Privacy Policy | E-Commerce App">
+    <Layout title="Privacy Policy | gurukulcse">
       <div className="container text-center mb-5">
         <div className="info-container py-2 ">
           <div className="info-details">

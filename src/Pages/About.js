@@ -3,13 +3,13 @@ import Layout from "../Components/Layouts/Layout.js";
 
 const About = () => {
   return (
-    <Layout title="About E-Commerce App">
+    <Layout title="About Us">
       <div className="container text-center mb-5">
         <div className="info-container ">
           <div className="info-details">
             <h2>About Our Platform</h2>
             <p>
-              Welcome to GurukulCSE, your ultimate destination for programming
+              Welcome to gurukulcse, your ultimate destination for programming
               education, resources, and research materials. Dive into our
               meticulously curated collection of courses, notes, and research
               papers to elevate your understanding and expertise in computer

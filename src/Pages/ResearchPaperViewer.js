@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { FaDownload } from "react-icons/fa6";
 import Layout from "../Components/Layouts/Layout";
-import {  useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const YouTubePlayerPage = () => {
@@ -27,7 +27,7 @@ const YouTubePlayerPage = () => {
     //eslint-disable-next-line
   }, []);
   return (
-    <Layout>
+    <Layout title={"Research Papers | gurukulcse"}>
       <div className="m-5">
         <div className="card rounded-5 bg-transparent text-light border-0">
           <div className="row ">
@@ -62,15 +62,13 @@ const YouTubePlayerPage = () => {
                 </p>
                 <div className="text-center d-flex justify-content-between">
                   <a
-                  rel="noopener noreferrer"
+                    rel="noopener noreferrer"
                     href={paperData.pdfLink}
                     target="_blank"
                     className="btn btn-info mt-2 py-3 px-4 d-btn "
-                    
                   >
                     <FaDownload
                       size="25px"
-                      
                       style={{ justifyContent: "center", alignItems: "center" }}
                     />{" "}
                     &ensp; Download Paper

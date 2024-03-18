@@ -25,8 +25,9 @@ const Layout = (props) => {
 };
 
 Layout.defaultProps = {
-  title: "Portfolio",
-  description: "Mern Stack E-Commerce Web App",
+  title: "gurukulcse.com",
+  description:
+    "Welcome to gurukulcse.com, your ultimate destination for programming education, resources, and research materials.",
   keywords: "mongodb, express, ract, node, webapp, mern, ecommerce, shopping",
   author: "rohit_kumar_singh",
 };
