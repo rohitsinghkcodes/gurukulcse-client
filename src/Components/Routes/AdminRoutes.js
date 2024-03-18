@@ -27,7 +27,7 @@ export default function AdminRoute() {
     };
 
     if (auth?.token) authCheck();
-  }, [auth?.token]);
+  }, [auth?.token,setAuth]);
 
   //outlet enables use of nested routing in app.js
   return ok ? <Outlet /> : <Spinner path="" />;
