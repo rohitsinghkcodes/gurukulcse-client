@@ -1,6 +1,6 @@
 {
   "name": "client",
-  "proxy": "https://gurukulcse-backend.onrender.com",
+  "proxy": "https://gurukulcse.up.railway.app/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
