@@ -9,6 +9,7 @@ const Courses = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     if (courses.length) {
       setLoading(false);
     }

@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Layout from "../Components/Layouts/Layout.js";
 
 const Policy = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <Layout title="Privacy Policy | gurukulcse">
       <div className="container text-center mb-5">

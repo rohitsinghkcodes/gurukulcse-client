@@ -43,7 +43,6 @@ const ResearchPapers = () => {
                   >
                     <div
                       className="card mb-3 rp-card rounded-4 px-4"
-                      style={{ minWidth: "100vh" }}
                     >
                       <div className="row g-0">
                         <div className="col-md-2 py-4">

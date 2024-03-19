@@ -110,7 +110,7 @@ const ManageNotes = () => {
           </div>
           <div className="col-md-9">
             <div className="card card-dash p-5 rounded-5">
-              <h3>Manage Notes📝</h3>
+              <h3>Manage Notes</h3>
               <Spin spinning={uploading} size="large" fullscreen />
 
               <div className="m-1 mt-2 ">

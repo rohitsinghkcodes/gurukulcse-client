@@ -26,18 +26,48 @@ const CourseVideos = () => {
           <div className="col-md-9">
             <div className="container mt-2">
               <h1>All Courses</h1>
-              <div className="row mt-4">
+              <div className="row d-flex flex-wrap justify-content-evenly">
                 {courses.map((c) => (
                   <div
-                    className="col-md-4 d-flex justify-content-center"
+                    className="col-md-4  my-2"
                     key={c._id}
                   >
                     <Link
                       to={`/dashboard/admin/courses/${c.slug}`}
-                      className=" card category-tiles p-4 m-2"
-                      style={{ minWidth: "40vh" }}
+                      className="product-link"
                     >
-                      {c.name}
+                      <div
+                        className="card product-card mt-2"
+                        style={{ width: "20rem" }}
+                      >
+                        <div
+                          style={{
+                            borderRadius: "20px 20px 0 0",
+                            overflow: "hidden",
+                          }}
+                        >
+                          <img
+                            src={`/api/v1/courses/course-image/${c._id}`}
+                            alt="course-img"
+                            style={{ width: "20rem" }}
+                          />
+                        </div>
+                        <div className="card-body ">
+                          <h6
+                            className="card-title mt-2"
+                            style={{
+                              overflow: "hidden",
+                              display: "-webkit-box",
+                              WebkitLineClamp: 1,
+                              WebkitBoxOrient: "vertical",
+                              fontSize: "18px",
+                              fontWeight: "bold",
+                            }}
+                          >
+                            {c.name}
+                          </h6>
+                        </div>
+                      </div>
                     </Link>
                   </div>
                 ))}

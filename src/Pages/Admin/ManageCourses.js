@@ -144,8 +144,8 @@ const ManageCourses = () => {
             <AdminMenu />
           </div>
           <div className="col-md-9">
-            <div className="card card-dash p-5 rounded-5  ">
-              <div className="d-grid  align-items-center w-100 m-0">
+            <div className="card card-dash p-2 rounded-5  ">
+              <div className="d-grid p-4 align-items-center w-100 m-0">
                 <h3>Manage Courses</h3>
                 <Spin spinning={uploading} size="large" fullscreen />
 
@@ -161,8 +161,8 @@ const ManageCourses = () => {
                   />
                 </div>
               </div>
-              <h4 className="mt-4">Courses</h4>
-              <div className="d-flex justify-content-center my-5">
+              <h4 className="mt-4 ms-2">Courses</h4>
+              <div className="d-flex justify-content-center">
                 <Spin spinning={loading} size="large" />
               </div>
 

@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Layout from "../Components/Layouts/Layout.js";
 
 const About = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <Layout title="About Us  | gurukulcse">
       <div className="container text-center mb-5">
@@ -75,8 +78,16 @@ const About = () => {
                 Rest assured of high-quality content vetted by experts to ensure
                 accuracy and relevance.
               </li>
-            </ul><br/>
-            <p>At GurukulCSE, we are committed to empowering individuals with the knowledge and resources they need to excel in the dynamic world of programming and computer science. Whether you're a student, a professional, or an enthusiast, join us on this journey of continuous learning and exploration. Unlock your full potential and embark on a path of endless possibilities with GurukulCSE.</p>
+            </ul>
+            <br />
+            <p>
+              At GurukulCSE, we are committed to empowering individuals with the
+              knowledge and resources they need to excel in the dynamic world of
+              programming and computer science. Whether you're a student, a
+              professional, or an enthusiast, join us on this journey of
+              continuous learning and exploration. Unlock your full potential
+              and embark on a path of endless possibilities with GurukulCSE.
+            </p>
           </div>
         </div>
       </div>
