@@ -20,11 +20,12 @@ const ManageCourses = () => {
   const [updatedImage, setUpdatedImage] = useState("");
   const [id, setId] = useState("");
   const [loading, setLoading] = useState(true);
+  const [uploading, setUploading] = useState(false);
 
   //handle form
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setUploading(true);
     // Validate if all fields are filled
 
     if (!name) {
@@ -60,9 +61,11 @@ const ManageCourses = () => {
       } else {
         toast.error(`${data.msg}`);
       }
+      setUploading(false);
     } catch (err) {
       console.log(err);
       toast.error(`${err}`);
+      setUploading(false);
     }
   };
 
@@ -87,6 +90,7 @@ const ManageCourses = () => {
   //*update course
   const handleUpdate = async (e) => {
     // e.preventDefault();
+
     try {
       const courseData = new FormData();
       courseData.append("name", updatedName);
@@ -140,9 +144,11 @@ const ManageCourses = () => {
             <AdminMenu />
           </div>
           <div className="col-md-9">
-            <div className="card card-dash p-2 rounded-5  ">
+            <div className="card card-dash p-5 rounded-5  ">
               <div className="d-grid  align-items-center w-100 m-0">
                 <h3>Manage Courses</h3>
+                <Spin spinning={uploading} size="large" fullscreen />
+
                 <div className="my-3 ">
                   <CourseForm
                     handleSubmit={handleSubmit}
@@ -156,77 +162,77 @@ const ManageCourses = () => {
                 </div>
               </div>
               <h4 className="mt-4">Courses</h4>
-              <div className="d-flex justify-content-center">
+              <div className="d-flex justify-content-center my-5">
                 <Spin spinning={loading} size="large" />
               </div>
 
               <div className="d-flex flex-wrap ">
-                {categories.length < 1 ? (
-                  <div>
-                    <p className="text-light">Available 0 courses.</p>
-                  </div>
-                ) : (
-                  categories?.map((c) => (
-                    <div
-                      key={c._id}
-                      className="card product-card m-1"
-                      style={{ width: "22rem" }}
-                    >
+                {categories.length < 1
+                  ? !loading && (
+                      <div>
+                        <p className="text-light">Available 0 courses.</p>
+                      </div>
+                    )
+                  : categories?.map((c) => (
                       <div
-                        style={{
-                          borderRadius: "20px 20px 0 0",
-                          overflow: "hidden",
-                        }}
+                        key={c._id}
+                        className="card product-card m-1"
+                        style={{ width: "22rem" }}
                       >
-                        <img
-                          src={`/api/v1/courses/course-image/${c._id}`}
-                          alt="course-img"
-                          style={{ width: "22rem" }}
-                        />
-                        <div className="row p-3">
-                          <div className="">
-                            <h4>{c.name}</h4>
-                            <h6
-                              style={{
-                                overflow: "hidden",
-                                display: "-webkit-box",
-                                WebkitLineClamp: 5,
-                                WebkitBoxOrient: "vertical",
-                              }}
-                            >
-                              {c.description}
-                            </h6>
-                          </div>
-                          <div className=" ">
-                            <div
-                              className="btn btn-sm btn-primary"
-                              onClick={() => {
-                                setVisible(true);
-                                setUpdatedName(c.name);
-                                setUpdatedDescription(c.description);
-                                setId(c._id);
-                                setSelected(c);
-                              }}
-                            >
-                              Edit
+                        <div
+                          style={{
+                            borderRadius: "20px 20px 0 0",
+                            overflow: "hidden",
+                          }}
+                        >
+                          <img
+                            src={`/api/v1/courses/course-image/${c._id}`}
+                            alt="course-img"
+                            style={{ width: "22rem" }}
+                          />
+                          <div className="row p-3">
+                            <div className="">
+                              <h4>{c.name}</h4>
+                              <h6
+                                style={{
+                                  overflow: "hidden",
+                                  display: "-webkit-box",
+                                  WebkitLineClamp: 5,
+                                  WebkitBoxOrient: "vertical",
+                                }}
+                              >
+                                {c.description}
+                              </h6>
                             </div>
-                            <Popconfirm
-                              title="Delete the task"
-                              description="Are you sure to delete this COURSE?"
-                              onConfirm={() => handleDelete(c._id)}
-                              okText="Yes"
-                              cancelText="No"
-                            >
-                              <div className="btn btn-sm btn-danger ms-2">
-                                Delete
+                            <div className=" ">
+                              <div
+                                className="btn btn-sm btn-primary"
+                                onClick={() => {
+                                  setVisible(true);
+                                  setUpdatedName(c.name);
+                                  setUpdatedDescription(c.description);
+                                  setId(c._id);
+                                  setSelected(c);
+                                }}
+                              >
+                                Edit
                               </div>
-                            </Popconfirm>
+                              <Popconfirm
+                                title="Delete the task"
+                                description="Are you sure to delete this COURSE?"
+                                onConfirm={() => handleDelete(c._id)}
+                                okText="Yes"
+                                cancelText="No"
+                              >
+                                <div className="btn btn-sm btn-danger ms-2">
+                                  Delete
+                                </div>
+                              </Popconfirm>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  ))
-                )}
+                    ))}
               </div>
             </div>
           </div>

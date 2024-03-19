@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Layout from "../../Components/Layouts/Layout";
 import AdminMenu from "../../Components/Layouts/AdminMenu";
 import axios from "axios";
-import { Select, Spin } from "antd";
+import { Popconfirm, Select, Spin } from "antd";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 const { Option } = Select;
@@ -63,6 +63,7 @@ const UpdateVideoDetails = () => {
   //*handle Update Product Button
   const handleUpdateProductBtn = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const productData = new FormData();
       productData.append("name", name);
@@ -76,6 +77,8 @@ const UpdateVideoDetails = () => {
       );
       if (data?.success) {
         toast.success(`${data?.msg}`);
+        setLoading(false);
+
         navigate("/dashboard/admin/course-videos");
       } else {
         toast.error(`${data?.msg}`);
@@ -86,18 +89,13 @@ const UpdateVideoDetails = () => {
     }
   };
 
-  //*handle Delete Product Button
-  const handleDeleteProductBtn = async (e) => {
-    e.preventDefault();
+  //! handle Delete Product Button
+  const handleDeleteVideoBtn = async (id) => {
     try {
-      const confirm = window.prompt(
-        'Type "yes" if you sure, you want to delete this product?'
-      );
-      if (!confirm) return;
       const { data } = await axios.delete(`/api/v1/videos/delete-video/${id}`);
       if (data?.success) {
         toast.success(`${data?.msg}`);
-        navigate("/dashboard/admin/products");
+        navigate("/dashboard/admin/course-videos");
       } else {
         toast.error(`${data?.msg}`);
       }
@@ -111,7 +109,7 @@ const UpdateVideoDetails = () => {
     <Layout title={"Dashboard - Update Video Details | gurukulcse"}>
       <Spin spinning={loading} size="large" fullscreen />
 
-      <div className="container-fluid m-3 p-3">
+      <div className="container-fluid  p-3">
         <div className="row">
           <div className="col-md-3">
             <AdminMenu />
@@ -174,18 +172,22 @@ const UpdateVideoDetails = () => {
                 </div>
 
                 <div className="mb-4 ">
-                  <button
-                    className="btn btn-primary mx-3"
+                  <div
+                    className="btn btn-primary "
                     onClick={handleUpdateProductBtn}
                   >
                     Update Details
-                  </button>
-                  <button
-                    className="btn btn-danger"
-                    onClick={handleDeleteProductBtn}
+                  </div>
+                  <Popconfirm
+                    title="Are you sure, you want to delete this video?"
+                    onConfirm={() => handleDeleteVideoBtn(id)}
+                    okText="Yes"
+                    cancelText="No"
                   >
-                    Delete Video
-                  </button>
+                    <div className="btn btn-danger rounded-3 ms-3 px-5">
+                      Delete
+                    </div>
+                  </Popconfirm>
                 </div>
               </div>
             </div>

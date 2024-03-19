@@ -15,6 +15,7 @@ const ManageNotes = () => {
   const [allSubNotes, setAllSubNotes] = useState([]);
   const [image, setImage] = useState("");
   const [loading, setLoading] = useState(true);
+  const [uploading, setUploading] = useState(false);
 
   const getAllNotes = async () => {
     try {
@@ -36,7 +37,7 @@ const ManageNotes = () => {
   //*handle add notes Button
   const handleAddNotesBtn = async (e) => {
     e.preventDefault();
-
+    setUploading(true);
     // Validate if all fields are filled
     if (!name) {
       toast.warning("tite field is empty!");
@@ -70,12 +71,15 @@ const ManageNotes = () => {
         setDescription("");
         setLink("");
         setImage("");
+        setUploading(false);
       } else {
         toast.error(`${data?.msg}`);
+        setUploading(false);
       }
     } catch (err) {
       console.log(err);
       toast.error("Something Went Wrong In Adding new notes!");
+      setUploading(false);
     }
   };
 
@@ -107,6 +111,8 @@ const ManageNotes = () => {
           <div className="col-md-9">
             <div className="card card-dash p-5 rounded-5">
               <h3>Manage Notes📝</h3>
+              <Spin spinning={uploading} size="large" fullscreen />
+
               <div className="m-1 mt-2 ">
                 <div className="mb-4">
                   <label className="form-label ">Title</label>
@@ -256,7 +262,7 @@ const ManageNotes = () => {
                   </div>
                 ))
               ) : (
-                <h4 className="text-center text-secondary">
+                !loading&&<h4 className="text-center text-secondary">
                   No result found for selected filters
                 </h4>
               )}

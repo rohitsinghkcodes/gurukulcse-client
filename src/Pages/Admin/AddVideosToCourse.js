@@ -5,6 +5,7 @@ import axios from "axios";
 import { Select } from "antd";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { Spin } from "antd";
 const { Option } = Select;
 
 const AddVideosToCourse = () => {
@@ -14,7 +15,7 @@ const AddVideosToCourse = () => {
   const [description, setDescription] = useState("");
   const [link, setLink] = useState("");
   const [course, setCourse] = useState("");
-
+  const [loading, setLoading] = useState(false);
 
   //* GET ALL Courses
   const getAllCourses = async () => {
@@ -36,7 +37,7 @@ const AddVideosToCourse = () => {
   //*handle add video Button
   const handleAddVideoBtn = async (e) => {
     e.preventDefault();
-
+    setLoading(true);
     // Validate if all fields are filled
     if (!course) {
       toast.warning("course field is empty!");
@@ -68,7 +69,12 @@ const AddVideosToCourse = () => {
       );
       if (data?.success) {
         toast.success(`${data?.msg}`);
-        navigate("/dashboard/admin/products");
+        navigate("/dashboard/admin/add-videos");
+        setName("");
+        setDescription("");
+        setLink("");
+        setCourse("");
+        setLoading(false);
       } else {
         toast.error(`${data?.msg}`);
       }
@@ -88,6 +94,8 @@ const AddVideosToCourse = () => {
           <div className="col-md-9">
             <div className="card card-dash p-5 rounded-5">
               <h3>Add Videos To Course</h3>
+              <Spin spinning={loading} size="large" fullscreen />
+
               <div className="m-1 ">
                 <Select
                   bordered={false}

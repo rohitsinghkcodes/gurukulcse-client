@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Layout from "../Components/Layouts/Layout.js";
 import useCourse from "../hooks/useCourse.js";
 import { Link } from "react-router-dom";
+import { Spin } from "antd";
 
 const HomePage = () => {
   const courses = useCourse();
+  const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    if (courses.length) {
+      setLoading(false);
+    }
+  }, [courses]);
   return (
-    <Layout >
+    <Layout>
       <>
         <div>
           <div className="container pt-4">
@@ -75,10 +82,7 @@ const HomePage = () => {
                 <span className="visually-hidden">Next</span>
               </button>
             </div>
-            {/* Crousel end
-            
-            
-            */}
+            {/* Crousel end*/}
 
             <div className="d-flex justify-content-between align-items-center">
               <h1 className="ms-3 mt-5">Courses</h1>
@@ -87,63 +91,69 @@ const HomePage = () => {
               </Link>
             </div>
             <div className="d-flex flex-wrap justify-content-evenly mt-2">
-              {courses.length > 0 ? (
-                courses?.slice(0, 4).map((product) => (
-                  <Link
-                    key={product._id}
-                    to={`/course/videos/${product.slug}`}
-                    className="product-link"
-                  >
-                    <div
-                      className="card product-card mt-2"
-                      style={{ width: "19rem" }}
+              {loading && (
+                <div className="d-flex justify-content-center my-4">
+                  <Spin spinning={loading} size="large" />
+                </div>
+              )}
+
+              {courses.length > 0
+                ? courses?.slice(0, 4).map((product) => (
+                    <Link
+                      key={product._id}
+                      to={`/course/videos/${product.slug}`}
+                      className="product-link"
                     >
                       <div
-                        style={{
-                          borderRadius: "20px 20px 0 0",
-                          overflow: "hidden",
-                        }}
+                        className="card product-card mt-2"
+                        style={{ width: "19rem" }}
                       >
-                        <img
-                          src={`/api/v1/courses/course-image/${product._id}`}
-                          alt="course-img"
-                          style={{ width: "19rem" }}
-                        />
-                      </div>
-                      <div className="card-body ">
-                        <h6
-                          className="card-title"
+                        <div
                           style={{
+                            borderRadius: "20px 20px 0 0",
                             overflow: "hidden",
-                            display: "-webkit-box",
-                            WebkitLineClamp: 1,
-                            WebkitBoxOrient: "vertical",
-                            fontSize: "18px",
-                            fontWeight: "bold",
                           }}
                         >
-                          {product.name}
-                        </h6>
-                        <p
-                          className="card-text"
-                          style={{
-                            overflow: "hidden",
-                            display: "-webkit-box",
-                            WebkitLineClamp: 3,
-                            WebkitBoxOrient: "vertical",
-                          }}
-                        >
-                          {product.description}
-                        </p>
+                          <img
+                            src={`/api/v1/courses/course-image/${product._id}`}
+                            alt="course-img"
+                            style={{ width: "19rem" }}
+                          />
+                        </div>
+                        <div className="card-body ">
+                          <h6
+                            className="card-title"
+                            style={{
+                              overflow: "hidden",
+                              display: "-webkit-box",
+                              WebkitLineClamp: 1,
+                              WebkitBoxOrient: "vertical",
+                              fontSize: "18px",
+                              fontWeight: "bold",
+                            }}
+                          >
+                            {product.name}
+                          </h6>
+                          <p
+                            className="card-text"
+                            style={{
+                              overflow: "hidden",
+                              display: "-webkit-box",
+                              WebkitLineClamp: 3,
+                              WebkitBoxOrient: "vertical",
+                            }}
+                          >
+                            {product.description}
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                  </Link>
-                ))
-              ) : (
-                <h4 className="text-center text-secondary">
-                  No courses found!
-                </h4>
-              )}
+                    </Link>
+                  ))
+                : !loading && (
+                    <h4 className="text-center text-secondary">
+                      No courses found!
+                    </h4>
+                  )}
             </div>
           </div>
         </div>

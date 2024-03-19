@@ -20,61 +20,63 @@ const Courses = () => {
         <Spin spinning={loading} size="large" fullscreen />
 
         <div className="d-flex flex-wrap justify-content-evenly mt-2">
-          {courses.length > 0 ? (
-            courses?.map((product) => (
-              <Link
-                key={product._id}
-                to={`/course/videos/${product.slug}`}
-                className="product-link"
-              >
-                <div
-                  className="card product-card mt-2"
-                  style={{ width: "19rem" }}
+          {courses.length > 0
+            ? courses?.map((product) => (
+                <Link
+                  key={product._id}
+                  to={`/course/videos/${product.slug}`}
+                  className="product-link"
                 >
                   <div
-                    style={{
-                      borderRadius: "20px 20px 0 0",
-                      overflow: "hidden",
-                    }}
+                    className="card product-card mt-2"
+                    style={{ width: "19rem" }}
                   >
-                    <img
-                      src={`/api/v1/courses/course-image/${product._id}`}
-                      alt="course-img"
-                      style={{ width: "19rem" }}
-                    />
-                  </div>
-                  <div className="card-body ">
-                    <h6
-                      className="card-title"
+                    <div
                       style={{
+                        borderRadius: "20px 20px 0 0",
                         overflow: "hidden",
-                        display: "-webkit-box",
-                        WebkitLineClamp: 1,
-                        WebkitBoxOrient: "vertical",
-                        fontSize: "18px",
-                        fontWeight: "bold",
                       }}
                     >
-                      {product.name}
-                    </h6>
-                    <p
-                      className="card-text"
-                      style={{
-                        overflow: "hidden",
-                        display: "-webkit-box",
-                        WebkitLineClamp: 3,
-                        WebkitBoxOrient: "vertical",
-                      }}
-                    >
-                      {product.description}
-                    </p>
+                      <img
+                        src={`/api/v1/courses/course-image/${product._id}`}
+                        alt="course-img"
+                        style={{ width: "19rem" }}
+                      />
+                    </div>
+                    <div className="card-body ">
+                      <h6
+                        className="card-title"
+                        style={{
+                          overflow: "hidden",
+                          display: "-webkit-box",
+                          WebkitLineClamp: 1,
+                          WebkitBoxOrient: "vertical",
+                          fontSize: "18px",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        {product.name}
+                      </h6>
+                      <p
+                        className="card-text"
+                        style={{
+                          overflow: "hidden",
+                          display: "-webkit-box",
+                          WebkitLineClamp: 3,
+                          WebkitBoxOrient: "vertical",
+                        }}
+                      >
+                        {product.description}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </Link>
-            ))
-          ) : (
-            <h4 className="text-center text-secondary">No courses found!</h4>
-          )}
+                </Link>
+              ))
+            : !loading && (
+                <h4 className="text-center text-secondary">
+                  No courses found!
+                </h4>
+              )}
         </div>
       </div>
     </Layout>
