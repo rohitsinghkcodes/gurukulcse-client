@@ -2,7 +2,7 @@ import Layout from "../Components/Layouts/Layout";
 import ReactPlayer from "react-player/lazy";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import {useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Spin } from "antd";
 
@@ -32,7 +32,7 @@ const VideoGallery = () => {
 
   useEffect(() => {
     getAllVideos();
-    window.scrollTo(0, 0)
+    window.scrollTo(0, 0);
     //eslint-disable-next-line
   }, []);
 
@@ -53,19 +53,21 @@ const VideoGallery = () => {
   return (
     <Layout title={`${video?.name} | gurukulcse`}>
       <div className="m-4">
-        {loading === true && <Spin spinning={loading} size="large" fullscreen />}
+        {loading === true && (
+          <Spin spinning={loading} size="large" fullscreen />
+        )}
         {videosList.length > 0 ? (
           <div className="row">
             <div className="col-md-8">
-              <div className="player-container">
+              <div className="player-wrapper player-container">
                 <ReactPlayer
                   url={video?.link}
                   width="100%"
-                  height="480px"
+                  height="100%"
                   controls
                 />
               </div>
-              <div className="card text-light card-bg p-3 rounded-4 mt-3">
+              <div className="card text-light card-bg p-3 rounded-4">
                 <h2 className="p-2 mt-3">{video?.name}</h2>
                 <p className="p-2">{video?.description}</p>
               </div>

@@ -161,7 +161,6 @@ info PAGE CSS
     color: rgba(255, 255, 255, 0.699);
     li {
       margin-bottom: 10px;
-      
     }
   }
 }
@@ -335,6 +334,18 @@ Authentication
 /*####################
     VIDEO GALLARY
  #################### */
+@media screen and (min-width: 768px) {
+  /* adjust as needed */
+  .player-wrapper {
+    height: 480px;
+  }
+}
+.player-container {
+  border-radius: 20px; /* Adjust the value to your desired rounded corner radius */
+  overflow: hidden; /* Ensure content inside the container respects the rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin-bottom: 5px;
+}
 .playlist-vid {
   background-color: #00000057;
   color: white;
