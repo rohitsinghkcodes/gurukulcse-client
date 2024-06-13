@@ -4,6 +4,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import moment from "moment";
 import { Spin } from "antd";
+import { Link } from "react-router-dom";
 
 const Notes = () => {
   const [allSubNotes, setAllSubNotes] = useState([]);
@@ -34,71 +35,63 @@ const Notes = () => {
         <div className="d-flex flex-wrap">
           {allSubNotes.length > 0
             ? allSubNotes?.map((n) => (
-                <div
-                  className="card rp-card mb-3 mx-2"
-                  style={{ width: "26rem" }}
+                <Link
                   key={n._id}
+                  to={`/notes-viewer/${n.slug}`}
+                  className="product-link"
                 >
                   <div
-                    style={{
-                      borderRadius: "20px 20px 0 0",
-                      overflow: "hidden",
-                    }}
+                    className="card rp-card mb-3 mx-2 notes-card"
+                    style={{ width: "26rem" }}
                   >
-                    <img
-                      src={`/api/v1/notes/sub-image/${n._id}`}
-                      alt="sunject-notes-img"
+                    <div
                       style={{
-                        minWidth: "26rem",
-                        height: "14rem",
-                        objectFit: "cover",
-                      }}
-                    />
-                  </div>
-
-                  <div className="card-body ">
-                    <h6
-                      style={{
-                        color: "white",
+                        borderRadius: "20px 20px 0 0",
                         overflow: "hidden",
-                        display: "-webkit-box",
-                        WebkitLineClamp: 1,
-                        WebkitBoxOrient: "vertical",
-                        fontSize: "18px",
-                        fontWeight: "bold",
                       }}
                     >
-                      {n.name}
-                    </h6>
-                    <p
-                      style={{
-                        color: "#ffffffd3",
-                        overflow: "hidden",
-                        display: "-webkit-box",
-                        WebkitLineClamp: 1,
-                        WebkitBoxOrient: "vertical",
-                      }}
-                    >
-                      {n.description}
-                    </p>
-                    <p className="card-text text-secondary">
-                      Last updated {moment(n.updatedAt).fromNow()}
-                    </p>
-                    <div className="text-center d-flex justify-content-center">
-                      <a
-                        rel="noopener noreferrer"
-                        href={n.pdfLink}
-                        target="_blank"
-                        className="btn px-4 d-btn"
+                      <img
+                        src={`/api/v1/notes/sub-image/${n._id}`}
+                        alt="sunject-notes-img"
                         style={{
-                          width: "100%",
+                          minWidth: "26rem",
+                          height: "14rem",
+                          objectFit: "cover",
+                        }}
+                      />
+                    </div>
+
+                    <div className="card-body ">
+                      <h6
+                        style={{
+                          color: "white",
+                          overflow: "hidden",
+                          display: "-webkit-box",
+                          WebkitLineClamp: 1,
+                          WebkitBoxOrient: "vertical",
+                          fontSize: "18px",
+                          fontWeight: "bold",
                         }}
                       >
-                        Download pdf
-                      </a>
+                        {n.name}
+                      </h6>
+                      <p
+                        style={{
+                          color: "#ffffffd3",
+                          overflow: "hidden",
+                          display: "-webkit-box",
+                          WebkitLineClamp: 1,
+                          WebkitBoxOrient: "vertical",
+                        }}
+                      >
+                        {n.description}
+                      </p>
+                      <p className="card-text text-secondary">
+                        Last updated {moment(n.updatedAt).fromNow()}
+                      </p>
                     </div>
                   </div>
-                </div>
+                </Link>
               ))
             : !loading && (
                 <h4 className="text-center text-secondary">

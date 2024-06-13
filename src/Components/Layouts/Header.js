@@ -59,7 +59,7 @@ const Header = () => {
                   padding: "8px",
                 }}
               >
-                {"</> gurukulcse.com"}
+                {"</> pravinkumar.com"}
               </div>
             </Link>
 

@@ -26,6 +26,7 @@ import UpdatePaperDetails from "./Pages/Admin/UpdatePaperDetails.js";
 import UpdateNotes from "./Pages/Admin/UpdateNotes.js";
 import AdminProfile from "./Pages/Admin/AdminProfile.js";
 import Policy from "./Pages/Policy.js";
+import NotesViewer from "./Pages/NotesViewer.js";
 
 function App() {
   return (
@@ -33,16 +34,20 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/papers" element={<ResearchPapers />} />
-        <Route path="/course/videos/:slug" element={<VideoGallery />} />
-        {/* <Route path="/home" element={<HomePage />} /> */}
         <Route
           path="/research-paper-viewer/:slug"
           element={<ResearchPaperViewer />}
         />
+        <Route path="/course/videos/:slug" element={<VideoGallery />} />
+        {/* <Route path="/home" element={<HomePage />} /> */}
         <Route path="/search" element={<Search />} />
         <Route path="/register" element={<Register />} />
         <Route path="/all-courses" element={<Courses />} />
         <Route path="/all-notes" element={<Notes />} />
+        <Route
+          path="/notes-viewer/:slug"
+          element={<NotesViewer />}
+        />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         {/* USER ROUTES */}
         <Route path="/" element={<PrivateRoute />}>

@@ -53,6 +53,7 @@ const ResearchPapers = () => {
                             alt="..."
                           />
                         </div>
+                        
                         <div className="col-md-10 ">
                           <div className="card-body">
                             <h5 className="card-title">{rp.name}</h5>

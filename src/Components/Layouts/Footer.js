@@ -20,7 +20,7 @@ const Footer = () => {
             <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
               <h6 className="text-uppercase fw-bold mb-4">
                 <i className=" f-head" />
-                gurukulcse.com
+                {"</> pravinkumar.com"}
               </h6>
             </div>
             <div className="col-md-1 col-lg-2 col-xl-2 mx-auto mb-4">
@@ -97,8 +97,8 @@ const Footer = () => {
         className="text-center p-4"
         style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
       >
-        {"</> "}gurukulcse.com&ensp; | &ensp;All rights reserved &copy;
-        gurukulcse.com
+        {"</> "}pravinkumar.com&ensp; | &ensp;All rights reserved &copy;
+        pravinkumar.com
       </div>
     </footer>
   );

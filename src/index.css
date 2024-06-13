@@ -401,6 +401,9 @@ viewer-desc {
 }
 
 /* NOTES CSS */
+.notes-card:hover{
+  border-color:  white ;
+}
 .notes-btn {
   background-color: rgb(79, 8, 180);
   color: white;

@@ -5,17 +5,17 @@ import Layout from "../Components/Layouts/Layout";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
-const ResearchPaperViewer = () => {
+const NotesViewer = () => {
   const params = useParams();
   const [paperData, setPaperData] = useState([]);
 
-  const getPaperData = async () => {
+  const getNotesData = async () => {
     try {
       const { data } = await axios.get(
-        `/api/v1/papers/get-single-paper/${params.slug}`
+        `/api/v1/notes/get-single-sub-notes/${params.slug}`
       );
       if (data?.success) {
-        setPaperData(data.paper);
+        setPaperData(data.notes);
       }
     } catch (error) {
       toast.error("Something went wrong while fethcing research papers!");
@@ -23,10 +23,18 @@ const ResearchPaperViewer = () => {
   };
 
   useEffect(() => {
-    getPaperData();
+    getNotesData();
     window.scrollTo(0, 0);
     //eslint-disable-next-line
   }, []);
+
+  const replaceView = (link) => {
+    if (typeof link === "string") {
+      const previewUrl = link.replace("/view", "/preview");
+      return previewUrl;
+    }
+    return null;
+  };
   return (
     <Layout title={"Research Papers | gurukulcse"}>
       <div className="m-5">
@@ -44,7 +52,7 @@ const ResearchPaperViewer = () => {
             <div className="col-md-5 ">
               <iframe
                 title={paperData._id}
-                src={`${paperData.pdfLink}preview`}
+                src={`${replaceView(paperData.pdfLink)}`}
                 style={{ width: "100%", minHeight: "500px" }} // Adjust minHeight as per your requirements
                 allow="autoplay"
               ></iframe>
@@ -58,10 +66,7 @@ const ResearchPaperViewer = () => {
                 >
                   {paperData.description}
                 </p>
-                <p className="text-secondary">
-                  Last Updated {paperData.updatedAt}
-                </p>
-                <div className="text-center d-flex justify-content-between">
+                <div className="text-center d-flex">
                   <a
                     rel="noopener noreferrer"
                     href={paperData.pdfLink}
@@ -72,7 +77,19 @@ const ResearchPaperViewer = () => {
                       size="25px"
                       style={{ justifyContent: "center", alignItems: "center" }}
                     />{" "}
-                    &ensp; Download Paper
+                    &ensp; Download Pdf
+                  </a>
+                  <a
+                    rel="noopener noreferrer"
+                    href={paperData.pdfLink}
+                    target="_blank"
+                    className="btn btn-info mt-2 py-3 px-4 d-btn ms-4"
+                  >
+                    <FaDownload
+                      size="25px"
+                      style={{ justifyContent: "center", alignItems: "center" }}
+                    />{" "}
+                    &ensp; Download Chapterwise
                   </a>
                 </div>
               </div>
@@ -84,4 +101,4 @@ const ResearchPaperViewer = () => {
   );
 };
 
-export default ResearchPaperViewer;
+export default NotesViewer;
